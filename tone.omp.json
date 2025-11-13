@@ -1,0 +1,221 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "\u2008",
+          "type": "text",
+          "style": "plain"
+        }
+      ],
+	  "newline": true
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "cache_duration": "none",
+            "fetch_stash_count": true,
+            "fetch_status": true
+          },
+          "leading_diamond": " \ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "template": " {{ .HEAD }}{{ if .Staging.Changed }}<#FF6F00> \uf046 {{ .Staging.String }}</>{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
+          "foreground": "#0077c2",
+          "background": "#303030",
+          "type": "git",
+          "style": "diamond"
+        }
+      ],
+      "newline": true
+    },
+    {
+      "type": "prompt",
+      "alignment": "right",
+      "segments": [
+        {
+          "properties": {
+            "cache_duration": "none",
+            "style": "dallas",
+            "threshold": 0
+          },
+          "leading_diamond": " \ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "template": "{{ .FormattedMs }}s",
+          "foreground": "#ffffff",
+          "background": "#303030",
+          "type": "executiontime",
+          "style": "diamond"
+        },
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "leading_diamond": " \ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "template": "{{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ .HostName }}",
+          "foreground": "#21c7c7",
+          "background": "#303030",
+          "type": "session",
+          "style": "diamond"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "time_format": "3:04:05 PM"
+          },
+          "leading_diamond": " \ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "template": "{{ .CurrentDate | date .Format }}",
+          "foreground": "#0077c2",
+          "background": "parentBackground",
+          "type": "time",
+          "style": "diamond"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "\u2008",
+          "type": "text",
+          "style": "plain"
+        }
+      ],
+      "newline": true
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+			"properties": {
+			  "cache_duration": "none"
+			},
+			"leading_diamond": "\u256d\u2500\ue0b6",
+			"template": " {{ .Name }} ",
+			"foreground": "#ffffff",
+			"background_templates": [
+			  "{{ if eq .Name \"fish\" }}#1abc9c{{ else if eq .Name \"bash\" }}#3498db{{ else if eq .Name \"sh\" }}#9b39b6{{ else if eq .Name \"zsh\" }}#e74c3c{{ else }}#0077c2{{ end }}"
+			],
+			"type": "shell",
+			"style": "diamond"
+		  },
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": " ⚡",
+          "foreground": "#dd1e1e",
+          "background": "#0077c2",
+          "type": "root",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "root_icon": "\uf292"
+          },
+          "template": "<parentBackground>\ue0b0</> \uf0e7 ",
+          "foreground": "#FFFB38",
+          "background": "#ef5350",
+          "type": "root",
+          "style": "diamond"
+        },
+        {
+          "properties": {
+            "alpine": "\uf300",
+            "arch": "\uf303",
+            "cache_duration": "none",
+            "centos": "\uf304",
+            "debian": "\uf306",
+            "elementary": "\uf309",
+            "fedora": "\uf30a",
+            "gentoo": "\uf30d",
+            "linux": "\ue712",
+            "macos": "\ue711",
+            "manjaro": "\uf312",
+            "mint": "\uf30f",
+            "opensuse": "\uf314",
+            "raspbian": "\uf315",
+            "ubuntu": "\uf31c",
+            "windows": "\ue62a",
+            "wsl": "\ue712"
+          },
+          "template": " {{ if .WSL }}WSL at {{ end }}{{.Icon}} ",
+          "foreground": "#E4E4E4",
+          "powerline_symbol": "\ue0b0",
+          "background": "#666666",
+          "type": "os",
+          "style": "powerline"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "folder_icon": "\ue5fe",
+            "folder_separator_icon": " <#000000>\ue0bd </>",
+            "home_icon": "\ueb06",
+            "style": "agnoster_short"
+          },
+          "template": " {{ .Path }} ",
+          "foreground": "#E4E4E4",
+          "powerline_symbol": "\ue0b0",
+          "background": "#444444",
+          "type": "path",
+          "style": "powerline"
+        }
+      ],
+      "newline": true
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+	  "segments": []
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "\u2570\u2500",
+          "foreground": "#21c7c7",
+          "type": "text",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "always_enabled": true,
+            "cache_duration": "none"
+          },
+          "template": "❯ ",
+          "foreground": "#e0f8ff",
+          "type": "status",
+          "style": "plain",
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}#ef5350{{ end }}"
+          ]
+        }
+      ],
+      "newline": true
+    }
+  ],
+  "version": 3,
+  "final_space": true
+}
